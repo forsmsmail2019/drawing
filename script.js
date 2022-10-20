@@ -79,7 +79,14 @@ function drawing(e){
 
 document.body.append(style,container)  // insert the element to the body
 
+newsheetbtn.addEventListener('click',newsheet)
 
 
 
-
+function newsheet(e){
+    let n_sqr = prompt('how much squares you want in your sheet ? 300 max ','300')
+    
+    if (n_sqr <=300) {
+        // console.log(` ${n_sqr} squares will be added` )
+    }
+}
