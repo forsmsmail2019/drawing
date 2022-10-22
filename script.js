@@ -120,9 +120,11 @@ function newsheet(e){
         tsize = 's'+sqr_size
         const children = sqrs.childNodes;
 
-        for (let i = children.length - 1; i >= 0; i--) {
-            sqrs.removeChild(children[i]);
-         }
+        // for (let i = children.length - 1; i >= 0; i--) {
+        //     sqrs.removeChild(children[i]);
+        //  }
+
+        sqrs.innerHTML =''
          creatsqr(times, tsize)
     }
    
