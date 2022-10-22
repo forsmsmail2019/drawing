@@ -19,10 +19,13 @@ style.innerHTML =`.container {
     background-color: seagreen;
     display: flex;
     flex-wrap: wrap;
-    gap: 2px;
-    width: 960px;
-    margin: auto;
+    // gap: 2px;
+    width: 512px;
+    height: 512px;
+    flex: initial;
+    margin: 50px auto;
     // flex-direction: column;
+
    
 }
 
@@ -34,15 +37,34 @@ style.innerHTML =`.container {
 
 
 .sqr {
-    // display: flex;
+    display: flex;
     
-    width: 16px;
-    height: 16px;
+    
     flex: initial;
-    border : 1px solid salmon ;
+    // border : .5px solid salmon ;
     background-color: white;
 
 
+}
+
+.s16 {
+    width: 16px;
+    height: 16px;
+}
+
+.s32 {
+    width: 32px;
+    height: 32px;
+}
+
+.s64 {
+    width: 64px;
+    height: 64px;
+}
+
+.s128 {
+    width: 128px;
+    height: 128px;
 }
 
 
@@ -55,13 +77,14 @@ style.innerHTML =`.container {
 
 
 
-function creatsqr(times){
+function creatsqr(times,size){
     
    
-    if (times > 0)     
+   
     for (i=1;i<= times;i++) {
         let elem = document.createElement("div")
         elem.classList.add('sqr')
+        elem.classList.add(size)
         elem.addEventListener('mouseover',drawing)
         sqrs.append(elem)
 
@@ -70,7 +93,7 @@ function creatsqr(times){
 }
 
 
-creatsqr(500)
+creatsqr(1024,'s16')
 
 function drawing(e){
     this.classList.add('hover')
@@ -84,9 +107,23 @@ newsheetbtn.addEventListener('click',newsheet)
 
 
 function newsheet(e){
-    let n_sqr = prompt('how much squares you want in your sheet ? 300 max ','300')
-    
-    if (n_sqr <=300) {
-        // console.log(` ${n_sqr} squares will be added` )
+    let sqr_size = prompt('enter the pointer size 16 ,32 ,64 128 , of your sheet ?','16')  // askin user for the square size he want 
+    let tsize = ''
+
+    if (sqr_size % 16 == 0) 
+    if (sqr_size <= 128) {
+        sqr_size = Number(sqr_size) 
+        // sqr_size += 2
+        let times = 512/sqr_size 
+        times *= times
+        sqr_size   
+        tsize = 's'+sqr_size
+        const children = sqrs.childNodes;
+
+        for (let i = children.length - 1; i >= 0; i--) {
+            sqrs.removeChild(children[i]);
+         }
+         creatsqr(times, tsize)
     }
+   
 }

@@ -5,8 +5,11 @@
     flex-wrap: wrap;
     gap: 16px;
     width: 960px;
+    height: 960px;
     align-items: center;
     flex-direction: column;
+    flex: initial;
+   
     
 
    
