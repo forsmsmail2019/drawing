@@ -131,18 +131,4 @@ function newsheet(e){
 }
 
 
-  function multiplyNumeric(obj) {
-    for (let key in obj) {
-      if (typeof obj[key] == 'number') {
-        obj[key] *= 2;
-      }
-    }
-  }
-
-let user = {
-  a : 200,
-  w : 300,
-  as : "hello",
- }
-multiplyNumeric(user)
-console.log(user)
+ 
